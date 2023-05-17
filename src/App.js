@@ -1,9 +1,25 @@
-import './App.css';
+import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
+import Home from './components/Home'
+
+const theme = createTheme({
+  typography: {
+    // h4: {
+      fontFamily: [
+      'Raleway',
+      'sans-serif',
+    ].join(','),
+    // },
+  },});
 
 function App() {
+
   return (
-    <div className="App">
-    </div>
+    <>
+    <CssBaseline/>
+      <ThemeProvider theme={theme}>
+        <Home/>
+      </ThemeProvider>
+     </>   
   );
 }
 

@@ -1,25 +1,15 @@
-import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
-import Home from './components/Home'
-
-const theme = createTheme({
-  typography: {
-    // h4: {
-      fontFamily: [
-      'Raleway',
-      'sans-serif',
-    ].join(','),
-    // },
-  },});
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import theme from "./theme/theme";
+import Home from "./pages/Home.jsx";
 
 function App() {
-
   return (
     <>
-    <CssBaseline/>
+      <CssBaseline />
       <ThemeProvider theme={theme}>
         <Home/>
       </ThemeProvider>
-     </>   
+    </>
   );
 }
 

@@ -1,7 +1,4 @@
 import { Box, Button, Input, Typography } from "@mui/material";
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchSearch, selectSearch } from "../../features/search/searchSlice";
 
 const searcher = {
   width: {
@@ -43,14 +40,11 @@ const btnSearch = {
 };
 
 const Searcher = () => {
-  const [searchText, setSearchText] = useState(null)
-  const dispatch = useDispatch();
-  
   return (
     <Box sx={searcher}>
-      <Typography sx={findImages}>FIND IMAGES</Typography>
-      <Input onChange={e => setSearchText(e.target.value)} sx={inputSearch} placeholder="add any word" />
-      <Button  onClick={() => dispatch(fetchSearch(searchText))} sx={btnSearch}>Search</Button>
+      <Typography sx={findImages}>MY PHOTOS</Typography>
+      <Input sx={inputSearch} placeholder="add any description" />
+      <Button sx={btnSearch}>Search</Button>
     </Box>
   );
 };

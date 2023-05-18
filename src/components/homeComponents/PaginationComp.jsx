@@ -4,7 +4,10 @@ import React from 'react'
 const containerPag = {
   my: 10,
   textAlign: "center",
-  pl: "39%",
+  pl: {
+    xs: "0%",
+    sm: "39%"
+  },
 }
 
 const PaginationComp = () => {

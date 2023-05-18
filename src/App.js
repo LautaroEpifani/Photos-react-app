@@ -6,9 +6,7 @@ function App() {
   return (
     <>
       <CssBaseline />
-      <ThemeProvider theme={theme}>
         <Home/>
-      </ThemeProvider>
     </>
   );
 }

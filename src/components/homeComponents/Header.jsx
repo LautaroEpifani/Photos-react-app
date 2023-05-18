@@ -1,15 +1,19 @@
-import { Container, Typography } from "@mui/material";
+import { Container, Link, Typography } from "@mui/material";
 import React from "react";
 import Searcher from "./Searcher";
 import land from "./assets/bgland.png";
 import TagsBanner from "./TagsBanner";
+
 
 const header = {
   backgroundImage: `url(${land})`,
   backgroundRepeat: "no-repeat",
   backgroundPosition: "center",
   backgroundSize: "cover",
-  pt: "100px",
+  pt: {
+    xs: "20px",
+    sm: "100px"
+  },
   mb: 10,
 };
 
@@ -21,7 +25,10 @@ const nav = {
 const logo = {
   color: "#FFF",
   fontWeight: 400,
-  fontSize: "25px",
+  fontSize: {
+    md:"25px",
+    xs:"20px"
+  },
   alignSelf: "flex-start",
 };
 
@@ -41,7 +48,9 @@ const Header = () => {
             Photos App
           </Typography>
           <Searcher />
-          <Typography sx={myPhotos}>MY PHOTOS</Typography>
+          <Link sx={{height: "25px"}} href="/myphotos"  underline="none">
+            <Typography sx={myPhotos}>MY PHOTOS</Typography>
+          </Link>
         </Container>
         <TagsBanner />
       </Container>

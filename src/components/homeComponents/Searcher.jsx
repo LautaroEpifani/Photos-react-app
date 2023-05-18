@@ -1,7 +1,10 @@
 import { Box, Button, Input, Typography } from "@mui/material";
 
 const searcher = {
-  width: "30%",
+  width: {
+    xs: "40%",
+    sm: "30%"
+  },
   mt: 4,
   mb: 16,
   textAlign: "center",

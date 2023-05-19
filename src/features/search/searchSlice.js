@@ -3,7 +3,8 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   loading: false,
-  results: [], 
+  results: [],
+  searchText: "", 
   error: '',
 };
 
@@ -39,6 +40,5 @@ export const searchSlice = createSlice({
   },
 });
 
-// export const { searchText } = searchSlice.actions;
 
 export default searchSlice.reducer;

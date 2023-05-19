@@ -26,6 +26,15 @@ const theme = createTheme({
         },
       },
     },
+    // MuiImageList: {
+    // styleOverrides: {
+    //     root: {
+    //       "&:hover": {
+    //         border: 1,
+    //       },
+    //     },
+    //   },
+    //  },
   },
   typography: {
     h1: {

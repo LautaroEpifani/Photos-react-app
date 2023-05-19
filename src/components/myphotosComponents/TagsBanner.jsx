@@ -37,8 +37,8 @@ const tagsText = {
 const TagsBanner = () => {
   return (
     <Box sx={boxTags}>
-      {tags.map((tag) => (
-        <Chip sx={tagsText} label={tag} variant="outlined"/>
+      {tags.map((tag, index) => (
+        <Chip key={index} sx={tagsText} label={tag} variant="outlined"/>
       ))}
     </Box>
   );

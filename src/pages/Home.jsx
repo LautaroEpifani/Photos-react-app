@@ -1,8 +1,8 @@
 import { Container } from "@mui/material";
 import Header from "../components/homeComponents/Header";
 import Main from "../components/homeComponents/Main";
-import PaginationComp from "../components/homeComponents/PaginationComp";
-import Footer from "../components/homeComponents/Footer";
+import PaginationComp from "../components/PaginationComp";
+import Footer from "../components/Footer";
 import { ThemeProvider } from "@mui/material";
 import theme from "../theme/theme.js";
 

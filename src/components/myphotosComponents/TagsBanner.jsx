@@ -24,6 +24,7 @@ const boxTags = {
   alignItems: "center",
   justifyContent: "center",
   flexWrap: "wrap",
+  boxShadow: 2,
 };
 
 const tagsText = {

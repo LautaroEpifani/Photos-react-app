@@ -1,4 +1,7 @@
 import { Box, Button, Input, Typography } from "@mui/material";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { filterByDescription } from "../../features/favourites/favouritesSlice";
 
 const searcher = {
   width: {
@@ -19,14 +22,22 @@ const findImages = {
 const inputSearch = {
   mt: 2,
   py: 0.5,
-  width: "80%",
+  width: {
+    xs:"100%",
+    sm:"80%"
+  },
+  mb: {
+    xs: 2,
+    sm: 0
+  },
   pl: 1,
   backgroundColor: "#FFF",
   borderRadius: "2px",
   fontSize: {
     xs:"10px",
     lg: "15px"
-  }
+  },
+  boxShadow: 1
 };
 
 const btnSearch = {
@@ -40,11 +51,22 @@ const btnSearch = {
 };
 
 const Searcher = () => {
+
+  const [description, setDescription] = useState("")
+  const favourites = useSelector((state) => state.filteredFavs);
+  const dispatch = useDispatch()
+
+  const searchDescription = () => {
+    dispatch(filterByDescription(description))
+    console.log(favourites)
+  }
+  
+
   return (
     <Box sx={searcher}>
       <Typography sx={findImages}>MY PHOTOS</Typography>
-      <Input sx={inputSearch} placeholder="add any description" />
-      <Button sx={btnSearch}>Search</Button>
+      <Input onChange={(e) => setDescription(e.target.value)} sx={inputSearch} placeholder="add any description" />
+      <Button onClick={() => searchDescription()} sx={btnSearch}>Search</Button>
     </Box>
   );
 };

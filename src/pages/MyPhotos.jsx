@@ -1,8 +1,8 @@
 import { Container } from "@mui/material";
 import Header from "../components/myphotosComponents/Header";
 import Main from "../components/myphotosComponents/Main";
-import PaginationComp from "../components/myphotosComponents/PaginationComp";
-import Footer from "../components/myphotosComponents/Footer";
+import PaginationComp from "../components/PaginationComp";
+import Footer from "../components/Footer";
 import { ThemeProvider } from "@mui/material";
 import theme from "../theme/theme.js";
 

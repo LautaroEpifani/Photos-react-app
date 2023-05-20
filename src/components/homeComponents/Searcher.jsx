@@ -21,15 +21,23 @@ const findImages = {
 
 const inputSearch = {
   mt: 2,
+  mb: {
+    xs: 2,
+    sm: 0
+  },
   py: 0.5,
-  width: "80%",
+  width: {
+    xs:"100%",
+    sm:"80%"
+  },
   pl: 1,
   backgroundColor: "#FFF",
   borderRadius: "2px",
   fontSize: {
     xs:"10px",
     lg: "15px"
-  }
+  },
+  boxShadow: 1
 };
 
 const btnSearch = {

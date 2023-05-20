@@ -3,11 +3,8 @@ import React from 'react'
 
 const containerPag = {
   my: 10,
-  textAlign: "center",
-  pl: {
-    xs: "0%",
-    sm: "39%"
-  },
+  display: "flex",
+  justifyContent: "center",
 }
 
 const PaginationComp = () => {

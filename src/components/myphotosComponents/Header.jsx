@@ -4,11 +4,9 @@ import Searcher from "./Searcher";
 import land from "./assets/bgland.png";
 import TagsBanner from "./TagsBanner";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import { filterByDescription } from "../../features/favourites/favouritesSlice";
 
 const Header = () => {
-  const dispatch = useDispatch();
 
   return (
     <header>

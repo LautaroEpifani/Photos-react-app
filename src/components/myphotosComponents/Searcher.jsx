@@ -1,7 +1,28 @@
 import { Box, Button, Input, Typography } from "@mui/material";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { filterByDescription } from "../../features/favourites/favouritesSlice";
+
+const Searcher = () => {
+
+  const [description, setDescription] = useState("")
+  const dispatch = useDispatch()
+
+  const searchDescription = () => {
+    dispatch(filterByDescription(description))
+  }
+  
+  return (
+    <Box sx={searcher}>
+      <Typography sx={findImages}>MY PHOTOS</Typography>
+      <Input onChange={(e) => setDescription(e.target.value)} sx={inputSearch} placeholder="add any description" />
+      <Button onClick={() => searchDescription()} sx={btnSearch}>Search</Button>
+    </Box>
+  );
+};
+
+export default Searcher;
+
 
 const searcher = {
   width: {
@@ -49,26 +70,3 @@ const btnSearch = {
   textTransform: "none",
   mb: 0.4,
 };
-
-const Searcher = () => {
-
-  const [description, setDescription] = useState("")
-  const favourites = useSelector((state) => state.filteredFavs);
-  const dispatch = useDispatch()
-
-  const searchDescription = () => {
-    dispatch(filterByDescription(description))
-    console.log(favourites)
-  }
-  
-
-  return (
-    <Box sx={searcher}>
-      <Typography sx={findImages}>MY PHOTOS</Typography>
-      <Input onChange={(e) => setDescription(e.target.value)} sx={inputSearch} placeholder="add any description" />
-      <Button onClick={() => searchDescription()} sx={btnSearch}>Search</Button>
-    </Box>
-  );
-};
-
-export default Searcher;

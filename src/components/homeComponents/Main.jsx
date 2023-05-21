@@ -12,32 +12,37 @@ const Main = () => {
   const searchResults = useSelector((state) => state.search.results);
   const [savedImage, setSavedImage] = useState([false]);
 
-  const favourites = useSelector((state) => state.favourites);
-  const fav = favourites
+  const favourites = useSelector((state) => state.favourites.favouritesState);
+  const fav = favourites;
   const dispatch = useDispatch();
- 
+
   const setFavourite = (image) => {
-    if((fav.map(f => f.id !== image.id)).find(f => f === false) !== false) {
-      let { description } = image
+    if (fav.map((f) => f.id !== image.id).find((f) => f === false) !== false) {
+      let { description } = image;
       const { id, width, height, likes, urls } = image;
-      if(!description) {
-        description = " "
+      if (!description) {
+        description = " ";
       }
       const newImage = { id, description, width, height, likes, urls, today };
       dispatch(saveImage(newImage));
     } else {
-      alert("You already have that image in your favs")
+      alert("You already have that image in your favs");
     }
+    ;
   };
-  
-  const saveSelfLike = (index) => {
-    let images = savedImage
-    images[index] = true
+
+  const saveSelfLike = async (index) => {
+    const delay = ms => new Promise(res => setTimeout(res, ms));
+    let images = savedImage;
+    images[index] = true;
     setSavedImage(images)
-  }
+    await delay(500);
+    images[index] = false;
+    setSavedImage(images)
+  };
 
   useEffect(() => {
-    setItem("favourites", [...favourites] || []);
+    setItem("favourites", [...favourites])
   }, [favourites])
 
   return (
@@ -63,7 +68,11 @@ const Main = () => {
                   }}
                   sx={{ backgroundColor: "#000" }}
                 >
-                  {savedImage[index] ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+                  {savedImage[index] ? (
+                    <FavoriteIcon />
+                  ) : (
+                    <FavoriteBorderIcon />
+                  )}
                 </Button>
                 <Button sx={{ backgroundColor: "#000" }}>
                   <DownloadIcon />
@@ -104,10 +113,10 @@ const imageList = {
 };
 
 const imageItem = {
-  width:  {
+  width: {
     xs: "100%",
     sm: "40%",
-    lg:"32%",
+    lg: "32%",
   },
   "&:hover": {
     border: 4,

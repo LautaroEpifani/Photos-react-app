@@ -1,6 +1,18 @@
 import { Box, Chip, Typography } from "@mui/material";
 import React from "react";
 
+const TagsBanner = () => {
+  return (
+    <Box sx={boxTags}>
+      {tags.map((tag, index) => (
+        <Chip key={index} sx={tagsText} label={tag} variant="outlined" />
+      ))}
+    </Box>
+  );
+};
+
+export default TagsBanner;
+
 const tags = [
   "animals",
   "portrait",
@@ -29,20 +41,8 @@ const boxTags = {
 
 const tagsText = {
   fontSize: {
-    xs:"10px",
+    xs: "10px",
     md: "12px",
     lg: "15px",
-  }
-}
-
-const TagsBanner = () => {
-  return (
-    <Box sx={boxTags}>
-      {tags.map((tag, index) => (
-        <Chip key={index} sx={tagsText} label={tag} variant="outlined"/>
-      ))}
-    </Box>
-  );
+  },
 };
-
-export default TagsBanner;

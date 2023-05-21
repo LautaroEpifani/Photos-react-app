@@ -1,7 +1,37 @@
-import { Container, Link, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import React from "react";
 import Searcher from "./Searcher";
 import land from "./assets/bgland.png";
+import { Link } from "react-router-dom";
+
+const Header = () => {
+  return (
+    <header>
+      <Container sx={header} maxWidth={false} disableGutters>
+        <Container sx={nav} maxWidth={false} disableGutters>
+          <Typography sx={logo} variant="h1">
+            Photos App
+          </Typography>
+          <Searcher />
+          <Box
+            sx={{
+              height: "25px",
+              width: {
+                xs: "30%",
+              },
+            }}
+          >
+            <Link to="/myphotos" style={{ textDecoration: "none" }}>
+              <Typography sx={myPhotos}>MY PHOTOS</Typography>
+            </Link>
+          </Box>
+        </Container>
+      </Container>
+    </header>
+  );
+};
+
+export default Header;
 
 const header = {
   backgroundImage: `url(${land})`,
@@ -41,32 +71,3 @@ const myPhotos = {
   fontWeight: 500,
   cursor: "pointer",
 };
-
-const Header = () => {
-  return (
-    <header>
-      <Container sx={header} maxWidth={false} disableGutters>
-        <Container sx={nav} maxWidth={false} disableGutters>
-          <Typography sx={logo} variant="h1">
-            Photos App
-          </Typography>
-          <Searcher />
-          <Link
-            sx={{
-              height: "25px",
-              width: {
-                xs: "30%",
-              },
-            }}
-            href="/myphotos"
-            underline="none"
-          >
-            <Typography sx={myPhotos}>MY PHOTOS</Typography>
-          </Link>
-        </Container>
-      </Container>
-    </header>
-  );
-};
-
-export default Header;

@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   loading: false,
-  results: [],
+  results: null,
   searchText: "", 
   error: '',
 };
@@ -10,8 +10,13 @@ const initialState = {
 export const fetchSearch = createAsyncThunk(
   'search/fetchSearch',
   async (searchText) => {
+      let URL = ""
       const API_KEY = process.env.REACT_APP_UNSPLASH_API_KEY
-      const URL = `https://api.unsplash.com/search/photos/?client_id=${API_KEY}&query=${searchText}`
+      if(searchText !== "") {
+          URL = `https://api.unsplash.com/search/photos/?client_id=${API_KEY}&query=${searchText}`
+      } else {
+          URL = `https://api.unsplash.com/photos/random/`
+      }
       const response = await fetch(URL)
       const json = await response.json()
       return json

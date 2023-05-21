@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteFavourite } from "../../features/favourites/favouritesSlice";
 import { useEffect } from "react";
 import { setItem } from "../../utils/localStorage";
+import { download } from "../../utils";
 
 const ImageListComponent = ({ image, setOpen, setDescription, setImageEdit }) => {
   const favourites = useSelector((state) => state.favourites.favouritesState);
@@ -75,7 +76,7 @@ const ImageListComponent = ({ image, setOpen, setDescription, setImageEdit }) =>
           >
             <DeleteIcon />
           </Button>
-          <Button sx={{ backgroundColor: "#000" }}>
+          <Button sx={{ backgroundColor: "#000" }} onClick={() => download(image.urls.full)}>
             <DownloadIcon />
           </Button>
         </Box>

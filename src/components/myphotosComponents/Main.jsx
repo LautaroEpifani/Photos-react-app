@@ -17,7 +17,7 @@ const Main = () => {
   const favourites = useSelector((state) => state.favourites.favouritesState);
   const filteredFavs = useSelector((state) => state.favourites.filteredFavs);
   const dispatch = useDispatch();
-  
+
   const closeModal = () => setOpen(false);
 
   const editDesc = () => {
@@ -37,28 +37,39 @@ const Main = () => {
     <main>
       <OrderBy />
       <Typography sx={resultsTitle}>Gallery</Typography>
-      <Box sx={imageList}>
-        <ModalComponent
-          open={open}
-          closeModal={closeModal}
-          setDescription={setDescription}
-          description={description}
-          editDesc={editDesc}
-        />
-        {favouritesList ? (
-          favouritesList.map((image) => (
-            <ImageListComponent
-              key={image.id}
-              image={image}
-              setOpen={setOpen}
-              setImageEdit={setImageEdit}
-              setDescription={setDescription}
-            />
-          ))
-        ) : (
-          <></>
-        )}
-      </Box>
+      {favourites.length === 0 ? (
+        <Box>
+          <Typography sx={{ textAlign: "center", fontSize: "30px", my: 2}} variant="h1" >
+            Your image collection is empty.
+          </Typography>
+          <Typography sx={{ textAlign: "center", fontSize: "20px"}}   variant="h1" >
+             Add new images
+          </Typography>
+        </Box>
+      ) : (
+        <Box sx={imageList}>
+          <ModalComponent
+            open={open}
+            closeModal={closeModal}
+            setDescription={setDescription}
+            description={description}
+            editDesc={editDesc}
+          />
+          {favouritesList ? (
+            favouritesList.map((image) => (
+              <ImageListComponent
+                key={image.id}
+                image={image}
+                setOpen={setOpen}
+                setImageEdit={setImageEdit}
+                setDescription={setDescription}
+              />
+            ))
+          ) : (
+            <></>
+          )}
+        </Box>
+      )}
     </main>
   );
 };

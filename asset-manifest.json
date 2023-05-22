@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.js": "/static/js/main.46c8d18b.js",
-    "static/media/bgland.png": "/static/media/bgland.a6d0fcea02eaa9fddf32.png",
-    "index.html": "/index.html",
-    "main.46c8d18b.js.map": "/static/js/main.46c8d18b.js.map"
+    "main.js": "/photos-react-app.github.io/static/js/main.6dcc5684.js",
+    "static/media/bgland.png": "/photos-react-app.github.io/static/media/bgland.a6d0fcea02eaa9fddf32.png",
+    "index.html": "/photos-react-app.github.io/index.html",
+    "main.6dcc5684.js.map": "/photos-react-app.github.io/static/js/main.6dcc5684.js.map"
   },
   "entrypoints": [
-    "static/js/main.46c8d18b.js"
+    "static/js/main.6dcc5684.js"
   ]
 }
